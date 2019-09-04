@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="efca9dbb-cfb0-4345-aeab-76dbffb47716" activeEnvironment="Default" name="superfinanciera.gov" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="54e3f247-f887-4c0e-bcae-0d53571044ef" wsaVersion="NONE" name="TCRMServicesWebServiceSoapBinding" type="wsdl" bindingName="{http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/}TCRMServicesWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="https://superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService?WSDL"><con:part><con:url>https://superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="TCRMServicesWebService" targetNamespace="http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="queryTCRM" type="tns:queryTCRM"/>
+      <xs:element name="queryTCRMResponse" type="tns:queryTCRMResponse"/>
+      <xs:complexType name="queryTCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tcrmQueryAssociatedDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryTCRMResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:tcrmResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tcrmResponse">
+        <xs:complexContent>
+          <xs:extension base="tns:tcrm">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="message" type="xs:string"/>
+              <xs:element minOccurs="0" name="success" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="tcrm">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="displayToUser" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="unit" type="xs:string"/>
+          <xs:element minOccurs="0" name="validityFrom" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="validityTo" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="value" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="queryTCRM">
+    <wsdl:part element="tns:queryTCRM" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryTCRMResponse">
+    <wsdl:part element="tns:queryTCRMResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TCRMServicesInterface">
+    <wsdl:operation name="queryTCRM">
+      <wsdl:input message="tns:queryTCRM" name="queryTCRM"></wsdl:input>
+      <wsdl:output message="tns:queryTCRMResponse" name="queryTCRMResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TCRMServicesWebServiceSoapBinding" type="tns:TCRMServicesInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="queryTCRM">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="queryTCRM">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="queryTCRMResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TCRMServicesWebService">
+    <wsdl:port binding="tns:TCRMServicesWebServiceSoapBinding" name="TCRMServicesWebServicePort">
+      <soap:address location="http://superfinanciera.gov.co:8080/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService</con:endpoint></con:endpoints><con:operation id="f9cf7014-0973-4363-912c-077bdd01e1ec" isOneWay="false" action="" name="queryTCRM" bindingOperationName="queryTCRM" type="Request-Response" outputName="queryTCRMResponse" inputName="queryTCRM" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0e141caf-710f-4544-831e-4de638da5957" name="Request 1" sslKeystore=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:act="http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <act:queryTCRM>
+         <!--Optional:-->
+         <tcrmQueryAssociatedDate>2019-09-04</tcrmQueryAssociatedDate>
+      </act:queryTCRM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://action.trm.services.generic.action.superfinanciera.nexura.sc.com.co/TCRMServicesInterface/queryTCRM"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
